@@ -1,0 +1,21 @@
+#Introdução como foi desenvolvido o código
+Iniciei criando a nossa classe main, já sabendo que precisaria de uma classe de cadastro
+Criei então a classe cadastro que, nela foi definida os atibutos Login, senha e confirma senha
+Criei um construtor  que recebe 3 argumentos por parametros
+Voltando na classe principal após receber os dados para cadastro e passa por algumento para o construtor
+Usamos o metodo da classe cadastraUsuario que internamente verifica se as duas senhas digitadas são iguais
+e caso seja verdadeiro retorna true, ao acessar o metodo cadastraUsuario verificamos se o retorno foi verdadeiro no main
+e se sim informamos que o cadastro foi realizado e retornamos para o menu inicial
+
+Na nossa tela de login
+na nossa classe Cadastro criei o metodo de login que recebe o login e senha por argumento
+e verifica se é igual o informado na tela de cadastro.
+Mas caso não tenha nenhum usuário cadastrado foi criado um try catch que verifica se exsite um usuario
+caso não tratamos o erro para que não seja dado um nullpinteException
+
+Na nossa tela do twitter pra funcionamento após logar
+temos a classe Twitter que que possui dois metodos um para publica o twitter e outro para visualizar todos
+
+
+
+
