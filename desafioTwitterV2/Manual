@@ -2,7 +2,7 @@
 Iniciei criando a nossa classe main, já sabendo que precisaria de uma classe de cadastro
 Criei então a classe cadastro que, nela foi definida os atibutos Login, senha e confirma senha
 Criei um construtor  que recebe 3 argumentos por parametros
-Voltando na classe principal após receber os dados para cadastro e passa por algumento para o construtor
+Voltando na classe principal após receber os dados para cadastro e passa por argumento para o construtor
 Usamos o metodo da classe cadastraUsuario que internamente verifica se as duas senhas digitadas são iguais
 e caso seja verdadeiro retorna true, ao acessar o metodo cadastraUsuario verificamos se o retorno foi verdadeiro no main
 e se sim informamos que o cadastro foi realizado e retornamos para o menu inicial
