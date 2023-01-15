@@ -9,12 +9,13 @@ public class Brinquedo extends Produto {
     private String idGerada = "B";
     private String tipo;
 
-    public Brinquedo(String nome, String preco, String tipo) {
-        super(nome, preco);
+    public Brinquedo(int quantidade, String nome, String preco, String tipo) {
+        super(quantidade, nome, preco);
         id = id + 1;
         idGerada = idGerada + id;
         this.tipo = tipo;
         this.categoriaProduto = CategoriaDeProdutos.Brinquedo;
+        adicionarQuantidadeNoEstoque(quantidade);
     }
 
     @Override

@@ -10,13 +10,14 @@ public class Album extends Produto {
 
     private String musicaOuBanda, selos;
 
-    public Album(String nome, String preco, String genero, String musicaOuBanda, String selos) {
-        super(nome, preco, genero);
+    public Album(int quantidade, String nome, String preco, String genero, String musicaOuBanda, String selos) {
+        super(quantidade, nome, preco, genero);
         id = id + 1;
-        idGerada = idGerada + String.valueOf(id);
+        idGerada = idGerada +id;
         this.musicaOuBanda = musicaOuBanda;
         this.selos = selos;
         this.categoriaProduto = CategoriaDeProdutos.Album;
+        adicionarQuantidadeNoEstoque(quantidade);
 
     }
 

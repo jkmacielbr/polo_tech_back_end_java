@@ -1,5 +1,5 @@
 package br.com.americanas.polotechDesafios.livraria;
-import br.com.americanas.polotechDesafios.livraria.Utilitario.Telas;
+import br.com.americanas.polotechDesafios.livraria.produtos.categoriaDeProdutos.Utilitario.Telas;
 
 
 public class Menu {

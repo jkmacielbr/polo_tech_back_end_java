@@ -1,4 +1,4 @@
-package br.com.americanas.polotechDesafios.livraria.Utilitario;
+package br.com.americanas.polotechDesafios.livraria.produtos.categoriaDeProdutos.Utilitario;
 
 import br.com.americanas.polotechDesafios.livraria.produtos.*;
 import br.com.americanas.polotechDesafios.livraria.produtos.categoriaDeProdutos.*;
@@ -6,6 +6,7 @@ import br.com.americanas.polotechDesafios.livraria.produtos.categoriaDeProdutos.
 import java.util.Scanner;
 
 public class Input {
+    int quantidade = 0;
     private String nome, preco, genero;
     private String escritor, editora; //LIVROS
     private String distribuidora, estudioJogos; //JOGOS
@@ -18,40 +19,46 @@ public class Input {
         if (op == 1) {
             receberDadosGeral(op);
             receberDadosAlbum();
-            Produto produto = new Album(nome, preco, genero, musicasOuBandas, selos);
+            Produto produto = new Album(quantidade, nome, preco, genero, musicasOuBandas, selos);
             Produto.addProdutoNoArray(produto);
         } else if (op == 2) {
             receberDadosGeral(op);
             receberDadosBrinquedo();
-            Produto produto = new Brinquedo(nome, preco, tipo);
+            Produto produto = new Brinquedo(quantidade, nome, preco, tipo);
             Produto.addProdutoNoArray(produto);
         } else if (op == 3) {
             receberDadosGeral(op);
             receberDadosFilme();
-            Produto produto = new Filme(nome, preco, genero, estudioFilmes, diretores, produtores);
+            Produto produto = new Filme(quantidade, nome, preco, genero, estudioFilmes, diretores, produtores);
             Produto.addProdutoNoArray(produto);
         } else if (op == 4) {
             receberDadosGeral(op);
             receberDadosjogo();
-            Produto produto = new Jogo(nome, preco, genero, distribuidora, estudioJogos);
+            Produto produto = new Jogo(quantidade, nome, preco, genero, distribuidora, estudioJogos);
             Produto.addProdutoNoArray(produto);
         } else if (op == 5) {
             receberDadosGeral(op);
             receberDadosLivro();
-            Produto produto = new Livro(nome, preco, genero, escritor, editora);
+            Produto produto = new Livro(quantidade, nome, preco, genero, escritor, editora);
             Produto.addProdutoNoArray(produto);
 
         } else {
             System.out.println("OpcaoInválida");
+
         }
     }
 
     private void receberDadosGeral(int op) {
         Scanner tc = new Scanner(System.in);
+        do {
+            System.out.print("Quantidade: ");
+            this.quantidade = ValidacaoDeInputs.inputIsvalido();
+            if(this.quantidade <=0) System.out.println("\t[INFORMAR QUANTIDADE MAIOR QUE 0]");
+        }while (this.quantidade <=0);
         System.out.print("Nome: ");
         this.nome = tc.nextLine();
         System.out.print("Preço: ");
-        this.preco = tc.nextLine();
+        this.preco = String.valueOf(ValidacaoDeInputs.inputIsvalido());
         if (op == 1 || op == 3 || op == 4 || op == 5) {
             System.out.print("Gênero: ");
             this.genero = tc.nextLine();
@@ -64,6 +71,7 @@ public class Input {
         this.musicasOuBandas = tc.nextLine();
         System.out.print("Selo: ");
         this.selos = tc.nextLine();
+
     }
 
     private void receberDadosBrinquedo() {

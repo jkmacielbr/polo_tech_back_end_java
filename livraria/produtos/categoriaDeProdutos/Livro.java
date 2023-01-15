@@ -8,13 +8,15 @@ public class Livro extends Produto {
     private String idGerada = "L";
     private String escritor, editora;
 
-    public Livro(String nome, String preco, String genero, String escritor, String editora) {
-        super(nome, preco, genero);
+    public Livro(int quantidade, String nome, String preco, String genero, String escritor, String editora) {
+        super(quantidade, nome, preco, genero);
         this.categoriaProduto = CategoriaDeProdutos.Livro;
         id = id + 1;
         idGerada = idGerada + id;
         this.escritor = escritor;
         this.editora = editora;
+        adicionarQuantidadeNoEstoque(quantidade);
+
     }
 
     @Override

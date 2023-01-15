@@ -9,13 +9,14 @@ public class Jogo extends Produto {
     private String idGerada = "J";
     private String distribuidora, estudio;
 
-    public Jogo(String nome, String preco, String genero, String distribuidora, String estudio) {
-        super(nome, preco, genero);
+    public Jogo(int quantidade,String nome, String preco, String genero, String distribuidora, String estudio) {
+        super(quantidade, nome, preco, genero);
         id = id + 1;
         idGerada = idGerada + id;
         this.distribuidora = distribuidora;
         this.estudio = estudio;
         this.categoriaProduto = CategoriaDeProdutos.Jogo;
+        adicionarQuantidadeNoEstoque(quantidade);
     }
 
     @Override
