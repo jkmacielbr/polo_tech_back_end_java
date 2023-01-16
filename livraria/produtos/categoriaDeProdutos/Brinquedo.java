@@ -1,28 +1,31 @@
 package br.com.americanas.polotechDesafios.livraria.produtos.categoriaDeProdutos;
 
-import br.com.americanas.polotechDesafios.livraria.produtos.Produto;
+import br.com.americanas.polotechDesafios.livraria.produtos.Produtos;
 import br.com.americanas.polotechDesafios.livraria.produtos.enumProdutos.CategoriaDeProdutos;
 
-public class Brinquedo extends Produto {
+import java.math.BigDecimal;
+import java.util.Objects;
+
+public class Brinquedo extends Produtos {
 
     private static int id = 0;
-    private String idGerada = "B";
     private String tipo;
 
-    public Brinquedo(int quantidade, String nome, String preco, String tipo) {
+    public Brinquedo(int quantidade, String nome, BigDecimal preco, String tipo) {
         super(quantidade, nome, preco);
-        id = id + 1;
-        idGerada = idGerada + id;
         this.tipo = tipo;
         this.categoriaProduto = CategoriaDeProdutos.Brinquedo;
         adicionarQuantidadeNoEstoque(quantidade);
+        id += 1;
+        this.idGerada = "B"+ id;
+
     }
 
     @Override
     public String toString() {
-        return  "\t[Produto]" +
-                        "\nID = " + idGerada +
-                        "\n" + super.toString() +
-                        "\nTipo = " + tipo;
+        return  "\t\t\t\t\t\t\t\t\t\t\t[Produto]" +
+                "\nID = " + idGerada +
+                super.toString() +
+                "\nTipo = " + tipo;
     }
 }

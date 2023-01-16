@@ -3,11 +3,14 @@ package br.com.americanas.polotechDesafios.livraria.produtos.categoriaDeProdutos
 import br.com.americanas.polotechDesafios.livraria.produtos.*;
 import br.com.americanas.polotechDesafios.livraria.produtos.categoriaDeProdutos.*;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Input {
     int quantidade = 0;
-    private String nome, preco, genero;
+    private String nome, genero;
+    private BigDecimal preco;
+
     private String escritor, editora; //LIVROS
     private String distribuidora, estudioJogos; //JOGOS
     private String estudioFilmes, diretores, produtores; //FILMES
@@ -19,28 +22,28 @@ public class Input {
         if (op == 1) {
             receberDadosGeral(op);
             receberDadosAlbum();
-            Produto produto = new Album(quantidade, nome, preco, genero, musicasOuBandas, selos);
-            Produto.addProdutoNoArray(produto);
+            Produtos produtos = new Album(quantidade, nome, preco, genero, musicasOuBandas, selos);
+            Produtos.cadastrarProduto(produtos);
         } else if (op == 2) {
             receberDadosGeral(op);
             receberDadosBrinquedo();
-            Produto produto = new Brinquedo(quantidade, nome, preco, tipo);
-            Produto.addProdutoNoArray(produto);
+            Produtos produtos = new Brinquedo(quantidade, nome, preco, tipo);
+            Produtos.cadastrarProduto(produtos);
         } else if (op == 3) {
             receberDadosGeral(op);
             receberDadosFilme();
-            Produto produto = new Filme(quantidade, nome, preco, genero, estudioFilmes, diretores, produtores);
-            Produto.addProdutoNoArray(produto);
+            Produtos produtos = new Filme(quantidade, nome, preco, genero, estudioFilmes, diretores, produtores);
+            Produtos.cadastrarProduto(produtos);
         } else if (op == 4) {
             receberDadosGeral(op);
             receberDadosjogo();
-            Produto produto = new Jogo(quantidade, nome, preco, genero, distribuidora, estudioJogos);
-            Produto.addProdutoNoArray(produto);
+            Produtos produtos = new Jogo(quantidade, nome, preco, genero, distribuidora, estudioJogos);
+            Produtos.cadastrarProduto(produtos);
         } else if (op == 5) {
             receberDadosGeral(op);
             receberDadosLivro();
-            Produto produto = new Livro(quantidade, nome, preco, genero, escritor, editora);
-            Produto.addProdutoNoArray(produto);
+            Produtos produtos = new Livro(quantidade, nome, preco, genero, escritor, editora);
+            Produtos.cadastrarProduto(produtos);
 
         } else {
             System.out.println("OpcaoInválida");
@@ -58,12 +61,13 @@ public class Input {
         System.out.print("Nome: ");
         this.nome = tc.nextLine();
         System.out.print("Preço: ");
-        this.preco = String.valueOf(ValidacaoDeInputs.inputIsvalido());
+        this.preco = BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido());
         if (op == 1 || op == 3 || op == 4 || op == 5) {
             System.out.print("Gênero: ");
             this.genero = tc.nextLine();
         }
     }
+
 
     private void receberDadosAlbum() {
         Scanner tc = new Scanner(System.in);
