@@ -21,9 +21,13 @@ public class Brinquedo extends Produtos {
 
     }
 
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
     @Override
     public String toString() {
-        return  "\t\t\t\t\t\t\t\t\t\t\t[Produto]" +
+        return  "\t\t\t\t\t\t\t\t\t\t\t\t\t\t[Produto]" +
                 "\nID = " + idGerada +
                 super.toString() +
                 "\nTipo = " + tipo;

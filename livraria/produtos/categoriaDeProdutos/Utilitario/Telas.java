@@ -72,12 +72,12 @@ public class Telas {
 
             System.out.print("[5] ESTOQUE DE LIVROS \t" + "[6] ESTOQUE DE TOTAL\n");
             System.out.println("\tQTD ESTOQUE = [" + Livro.getQuantidadeEstoqueLivro()+
-                    "]"+ "\tQTD ESTOQUE = [" + Produtos.getQuantidadeEstoqueTotal()+"]");
+                    "]"+ "\t\tQTD ESTOQUE = [" + Produtos.getQuantidadeEstoqueTotal()+"]");
             System.out.println();
             System.out.print("[7] ALTERAR\t");
-            System.out.print("\t[0] SAIR\t");
-            System.out.println("[8] REMOVER");
-            System.out.println("[9] BUSCAR POR ID");
+            System.out.print("\t[8] REMOVER\t");
+            System.out.println("\t[9] BUSCAR POR ID");
+            System.out.println("\t\t\t\t[0] SAIR");
 
             opcaoDeCategoria = ValidacaoDeInputs.inputIsvalido();
             if (opcaoDeCategoria == 6) {
@@ -86,23 +86,58 @@ public class Telas {
             } else if (opcaoDeCategoria == 1 || opcaoDeCategoria == 2 || opcaoDeCategoria == 3 || opcaoDeCategoria == 4 || opcaoDeCategoria == 5) {
                 Produtos.mostraEstoquePorCategoria(opcaoDeCategoria);
             } else if (opcaoDeCategoria == 7){
+                telaAlterarProduto();
+
+
+            } else if (opcaoDeCategoria == 8){
+                telaRemover();
 
             } else if (opcaoDeCategoria == 9){
-                Scanner entradaUsuario = new Scanner(System.in);
-                System.out.print("ID PRODUTO PARA REALIZAR BUSCA: ");
-                String idDoProduto = entradaUsuario.nextLine();
+                telaBuscarProduto();
 
-                if (Produtos.buscarProdutoPelaID(idDoProduto) != null){
-                    System.out.println(Produtos.buscarProdutoPelaID(idDoProduto));
-                } else {
-                    System.out.println("\t\t[PRODUTO NÃO ENCONTRADO]");
-                }
-                telaDeEstoque();
 
             }
 
             else if (opcaoDeCategoria !=0 )System.out.println("\t\t\t[OPÇÃO INVÁLIDA]");
         } while (opcaoDeCategoria != 0);
 
+    }
+
+    public void telaBuscarProduto(){
+        Scanner entradaUsuario = new Scanner(System.in);
+        System.out.print("ID PRODUTO PARA REALIZAR BUSCA: ");
+        String idDoProduto = entradaUsuario.nextLine();
+
+        if (Produtos.buscarProdutoPelaID(idDoProduto) != null){
+            System.out.println(Produtos.buscarProdutoPelaID(idDoProduto));
+        } else {
+            System.out.println("\t\t[PRODUTO NÃO ENCONTRADO]");
+        }
+
+    }
+
+    public void telaAlterarProduto() {
+        Scanner entradaUsuario = new Scanner(System.in);
+        System.out.print("ID PRODUTO PARA REALIZAR BUSCA: ");
+        String idDoProduto = entradaUsuario.nextLine();
+        if (Produtos.buscarProdutoPelaID(idDoProduto) != null) {
+            System.out.println(Produtos.buscarProdutoPelaID(idDoProduto));
+            Produtos.alterarProdutoCadastrado(Produtos.buscarProdutoPelaID(idDoProduto));
+
+
+
+        }
+    }
+
+    public void telaRemover(){
+        Scanner entradaUsuario = new Scanner(System.in);
+        System.out.print("ID PRODUTO PARA REALIZAR BUSCA: ");
+        String idDoProduto = entradaUsuario.nextLine();
+        if (Produtos.buscarProdutoPelaID(idDoProduto)!= null){
+            System.out.print("Quantidade para remover: ");
+            int quantidade = entradaUsuario.nextInt();
+            Produtos.removeQuantidadeNoEstoqueDoProduto(idDoProduto, quantidade);
+
+        }
     }
 }

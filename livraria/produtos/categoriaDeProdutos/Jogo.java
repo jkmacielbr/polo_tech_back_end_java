@@ -19,6 +19,14 @@ public class Jogo extends Produtos {
         this.idGerada = "J"+ id;
     }
 
+    public void setDistribuidora(String distribuidora) {
+        this.distribuidora = distribuidora;
+    }
+
+    public void setEstudio(String estudio) {
+        this.estudio = estudio;
+    }
+
     @Override
     public String toString() {
         return  "\t\t\t\t\t\t\t\t\t\t\t[Produto]" +

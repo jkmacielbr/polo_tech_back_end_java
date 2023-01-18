@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 public class Filme extends Produtos {
     private static int id = 0;
-    private String idGerada = "F";
+   // private String idGerada = "F";
     private String estudio, diretores, produtores;
 
     public Filme(int qantidade, String nome, BigDecimal preco, String genero, String estudio, String diretores, String produtores) {
@@ -21,6 +21,17 @@ public class Filme extends Produtos {
         this.idGerada = "F"+ id;
     }
 
+    public void setEstudio(String estudio) {
+        this.estudio = estudio;
+    }
+
+    public void setDiretores(String diretores) {
+        this.diretores = diretores;
+    }
+
+    public void setProdutores(String produtores) {
+        this.produtores = produtores;
+    }
 
     @Override
     public String toString() {

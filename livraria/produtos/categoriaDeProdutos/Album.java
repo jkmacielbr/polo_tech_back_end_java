@@ -22,9 +22,17 @@ public class Album extends Produtos {
 
     }
 
+    public void setMusicaOuBanda(String musicaOuBanda) {
+        this.musicaOuBanda = musicaOuBanda;
+    }
+
+    public void setSelos(String selos) {
+        this.selos = selos;
+    }
+
     @Override
     public String toString() {
-        return  "\t\t\t\t\t\t\t\t\t\t\t[Produto]" +
+        return  "\t\t\t\t\t\t\t\t\t\t\t\t\t\t[Produto]" +
                 "\nID = " + idGerada +
                 super.toString() +
                 "\nGenero = " + genero +
