@@ -1,4 +1,4 @@
-package br.com.americanas.polotechDesafios.livraria.produtos.Utilitarios;
+package br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.Utilitarios;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
