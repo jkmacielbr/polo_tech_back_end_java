@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 
 public class Filme extends Produtos {
     private static int id = 0;
-   // private String idGerada = "F";
     private String estudio, diretores, produtores;
 
     public Filme(int qantidade, String nome, BigDecimal preco, String genero, String estudio, String diretores, String produtores) {

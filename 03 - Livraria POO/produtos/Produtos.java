@@ -1,10 +1,9 @@
 package br.com.americanas.polotechDesafios.livraria.produtos;
 
 import br.com.americanas.polotechDesafios.livraria.produtos.categoriaDeProdutos.*;
-import br.com.americanas.polotechDesafios.livraria.produtos.categoriaDeProdutos.Utilitario.GeradorDeData;
-import br.com.americanas.polotechDesafios.livraria.produtos.categoriaDeProdutos.Utilitario.ValidacaoDeInputs;
+import br.com.americanas.polotechDesafios.livraria.produtos.Utilitarios.GeradorDeData;
+import br.com.americanas.polotechDesafios.livraria.produtos.Utilitarios.ValidacaoDeInputs;
 import br.com.americanas.polotechDesafios.livraria.produtos.enumProdutos.CategoriaDeProdutos;
-
 
 import java.math.BigDecimal;
 
@@ -25,6 +24,7 @@ public abstract class Produtos {
     protected CategoriaDeProdutos categoriaProduto;
     public String genero;
     protected String dataDeCadastro;
+    protected static BigDecimal valorDeVendas = new BigDecimal("0.00");
     protected DecimalFormat formatarPreco = new DecimalFormat("0.00");
     public static ArrayList<Produtos> produto = new ArrayList<>();
 
@@ -63,7 +63,7 @@ public abstract class Produtos {
             resposta = ValidacaoDeInputs.inputIsvalido();
             if (resposta > 4) {
                 System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
-                //alterarProdutoCadastrado(produtoCadastrado);
+
             } else if (resposta == 1) {
                 System.out.print("Novo Nome: ");
                 produtoCadastrado.setNome(tc.nextLine());
@@ -191,7 +191,7 @@ public abstract class Produtos {
             } else if (resposta == 2) {
                 System.out.print("Novo Preço: ");
                 produtoCadastrado.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
-            }else if (resposta == 3) {
+            } else if (resposta == 3) {
                 System.out.print("Adicionar quantidade: ");
                 quantidade = ValidacaoDeInputs.inputIsvalido();
                 produtoCadastrado.adicionarQuantidadeNoEstoque(quantidade);
@@ -214,7 +214,7 @@ public abstract class Produtos {
 
     }
 
-    public static void removeQuantidadeNoEstoqueDoProduto(String idInformada, int quantidade) {
+    public static boolean removeQuantidadeNoEstoqueDoProduto(String idInformada, int quantidade) {
         String idUppercase;
         idUppercase = idInformada.toUpperCase();
         for (Produtos p : produto) {
@@ -222,6 +222,7 @@ public abstract class Produtos {
             if (quantidade > quantidadeEstoqueTotal || quantidade > p.quantidade && p.idGerada.equals(idUppercase)) {
                 System.out.println("\n\t\t\t\t[QUANTIDADE NÃO DISPONIVEL EM ESTOQUE]\n[Nome do produto: " + p.getNome() +
                         "]\t [Categoria: " + p.categoriaProduto + "]\t Quantidade no estoque: " + p.quantidade + "\n");
+                return false;
             }
             if (p.getIdgerada().equals(idUppercase) && quantidadeEstoqueTotal >= quantidade && quantidade <= p.quantidade) {
                 p.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
@@ -249,12 +250,12 @@ public abstract class Produtos {
                 }
                 System.out.println("\n\t\t\t\t[QUANTIDADE REMOVIDA DO ESTOQUE ]\n[Nome do produto: " + p.getNome() +
                         "]\t [Categoria: " + p.categoriaProduto + "]\t Quantidade no estoque: " + p.quantidade + "\n");
+                return true;
             }
 
 
         }
-
-        //produto.remove(buscarProdutoPelaID(idInformada));
+        return false;
     }
 
     public static void mostraTodoEstoque() {
@@ -330,6 +331,13 @@ public abstract class Produtos {
         return produto.size() != 0;
     }
 
+    public static void realizarVenda(Produtos produto, int quantidadeVender) {
+        if(removeQuantidadeNoEstoqueDoProduto(produto.idGerada, quantidadeVender)) {
+            valorDeVendas = valorDeVendas.add(produto.preco.multiply(new BigDecimal(quantidadeVender)));
+        } else System.out.println("Venda não realizada");
+
+    }
+
 
     public String getNome() {
         return nome;
@@ -373,6 +381,10 @@ public abstract class Produtos {
 
     public void setPreco(BigDecimal preco) {
         this.preco = preco;
+    }
+
+    public static BigDecimal getValorDeVendas() {
+        return valorDeVendas;
     }
 
     @Override
