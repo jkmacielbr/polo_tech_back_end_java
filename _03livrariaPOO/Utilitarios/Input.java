@@ -1,9 +1,8 @@
-package br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.Utilitarios;
+package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios;
 
 
-import br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.Produtos;
-import br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.categoriaDeProdutos.*;
-import br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.categoriaDeProdutos.*;
+import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.Produtos;
+import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos.*;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
