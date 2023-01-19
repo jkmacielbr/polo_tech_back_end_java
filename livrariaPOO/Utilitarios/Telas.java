@@ -1,10 +1,10 @@
-package br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.Utilitarios;
+package br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.Utilitarios;
 
-import br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.produtos.Produtos;
-import br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.produtos.categoriaDeProdutos.Album;
-import br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.produtos.categoriaDeProdutos.Filme;
-import br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.produtos.categoriaDeProdutos.Jogo;
-import br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.produtos.categoriaDeProdutos.Livro;
+import br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.Produtos;
+import br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.categoriaDeProdutos.Album;
+import br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.categoriaDeProdutos.Filme;
+import br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.categoriaDeProdutos.Jogo;
+import br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.categoriaDeProdutos.Livro;
 
 import java.util.Scanner;
 

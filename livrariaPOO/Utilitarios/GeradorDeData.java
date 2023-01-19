@@ -1,4 +1,4 @@
-package br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.produtos.Utilitarios;
+package br.com.americanas.desafios.polo_tech_back_end_java.livrariaPOO.Utilitarios;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
