@@ -1,13 +1,10 @@
 package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO;
 
-
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios.RecebeDadosDeCadastro;
-
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.Produtos;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos.*;
 
 import java.math.BigDecimal;
-
 
 
 public class Funcionalidades {

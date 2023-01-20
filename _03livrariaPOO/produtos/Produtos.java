@@ -16,9 +16,9 @@ import java.util.Scanner;
 public abstract class Produtos {
 
     protected static int id = 0;
-    public static int quantidadeEstoqueTotal, quantidadeEstoqueAlbum, quantidadeEstoqueBrinquedo,
+    static int quantidadeEstoqueTotal, quantidadeEstoqueAlbum, quantidadeEstoqueBrinquedo,
             quantidadeEstoqueFilme, quantidadeEstoqueJogo, quantidadeEstoqueLivro;
-    public static int quantidade;
+    public int quantidade;
     public String nome;
     protected String idGerada;
     public BigDecimal preco;

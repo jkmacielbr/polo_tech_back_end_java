@@ -42,7 +42,7 @@ public class Telas {
     }
 
     private void telaDeCadastro() {
-        RecebeDadosDeCadastro enviaDados = new RecebeDadosDeCadastro();
+
 
         do {
             System.out.println("\t\t[CADASTRAR PRODUTOS]");
@@ -55,8 +55,6 @@ public class Telas {
             op = ValidacaoDeInputs.inputIsvalido();
             if(op <= 5 && op > 0) {
                 Funcionalidades.cadastrarProduto(op);
-                //enviaDados.cadastrarProduto(op);
-                //telaDeCadastro();
 
             } else if (op !=0)  {
                 System.out.println("\t\t\t[OPÇÃO INVÁLIDA]");
