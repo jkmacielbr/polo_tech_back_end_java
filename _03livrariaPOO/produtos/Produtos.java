@@ -16,9 +16,9 @@ import java.util.Scanner;
 public abstract class Produtos {
 
     protected static int id = 0;
-    static int quantidadeEstoqueTotal, quantidadeEstoqueAlbum, quantidadeEstoqueBrinquedo,
+    public static int quantidadeEstoqueTotal, quantidadeEstoqueAlbum, quantidadeEstoqueBrinquedo,
             quantidadeEstoqueFilme, quantidadeEstoqueJogo, quantidadeEstoqueLivro;
-    public int quantidade;
+    public static int quantidade;
     public String nome;
     protected String idGerada;
     public BigDecimal preco;
@@ -42,13 +42,6 @@ public abstract class Produtos {
         this.preco = preco;
         this.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
         this.genero = genero;
-
-    }
-
-    public static void cadastrarProduto(Produtos produtoRecebido) {
-
-        System.out.println("\t\t[CADASTRADO COM SUCESSO]");
-        Produtos.produto.add(produtoRecebido);
 
     }
 

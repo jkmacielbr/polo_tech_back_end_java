@@ -1,5 +1,6 @@
 package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios;
 
+import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Funcionalidades;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.Produtos;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos.Album;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos.Filme;
@@ -41,7 +42,7 @@ public class Telas {
     }
 
     private void telaDeCadastro() {
-        Input enviaDados = new Input();
+        RecebeDadosDeCadastro enviaDados = new RecebeDadosDeCadastro();
 
         do {
             System.out.println("\t\t[CADASTRAR PRODUTOS]");
@@ -53,7 +54,8 @@ public class Telas {
             System.out.println("[0] SAIR");
             op = ValidacaoDeInputs.inputIsvalido();
             if(op <= 5 && op > 0) {
-                enviaDados.cadastrarProduto(op);
+                Funcionalidades.cadastrarProduto(op);
+                //enviaDados.cadastrarProduto(op);
                 //telaDeCadastro();
 
             } else if (op !=0)  {
