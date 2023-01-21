@@ -4,5 +4,4 @@ public enum CategoriaDeProdutos {
     Livro, Jogo,
     Filme, Album,
     Brinquedo
-
 }

@@ -8,14 +8,13 @@ import java.util.Scanner;
 
 public class RecebeDadosDeCadastro {
 
-
     public static void receberDadosGeral(int op) {
         Scanner tc = new Scanner(System.in);
         do {
             System.out.print("Quantidade: ");
             Funcionalidades.quantidade = ValidacaoDeInputs.inputIsvalido();
-            if (Funcionalidades.quantidade <= 0) System.out.println("\t[INFORMAR QUANTIDADE MAIOR QUE 0]");
-        } while (Funcionalidades.quantidade <= 0);
+
+        } while (!Funcionalidades.validaQuantidade(Funcionalidades.quantidade));
         System.out.print("Nome: ");
         Funcionalidades.nome = tc.nextLine();
         System.out.print("Preço: ");
@@ -25,7 +24,6 @@ public class RecebeDadosDeCadastro {
             Funcionalidades.genero = tc.nextLine();
         }
     }
-
 
     public static void receberDadosAlbum() {
         Scanner tc = new Scanner(System.in);
@@ -67,6 +65,5 @@ public class RecebeDadosDeCadastro {
         System.out.print("Editora: ");
         Funcionalidades.editora = tc.nextLine();
     }
-
 
 }
