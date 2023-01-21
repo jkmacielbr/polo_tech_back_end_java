@@ -1,5 +1,6 @@
 package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos;
 
+import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Funcionalidades;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.enumProdutos.CategoriaDeProdutos;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.Produtos;
 
@@ -15,8 +16,8 @@ public class Album extends Produtos {
         super(quantidade, nome, preco, genero);
         this.musicaOuBanda = musicaOuBanda;
         this.selos = selos;
-        this.categoriaProduto = CategoriaDeProdutos.Album;
-        adicionarQuantidadeNoEstoque(quantidade);
+        categoriaProduto = CategoriaDeProdutos.Album;
+        Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, categoriaProduto);
         id += 1;
         this.idGerada = "A"+ id;
 

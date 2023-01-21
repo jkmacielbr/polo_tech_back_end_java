@@ -1,5 +1,6 @@
 package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos;
 
+import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Funcionalidades;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.enumProdutos.CategoriaDeProdutos;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.Produtos;
 
@@ -11,26 +12,14 @@ public class Livro extends Produtos {
 
     public Livro(int quantidade, String nome, BigDecimal preco, String genero, String escritor, String editora) {
         super(quantidade, nome, preco, genero);
-        this.categoriaProduto = CategoriaDeProdutos.Livro;
+        categoriaProduto = CategoriaDeProdutos.Livro;
         this.escritor = escritor;
         this.editora = editora;
-        adicionarQuantidadeNoEstoque(quantidade);
+        Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, categoriaProduto);
         id += 1;
         this.idGerada = "L" + id;
 
     }
-
-//    public static boolean cadastrarProduto(Livro produtoRecebido) {
-//
-//        for (Produtos p: produto){
-//            if(p.getNome().equals(produtoRecebido.getNome()) && p.genero.equals(produtoRecebido.genero)) {
-//                return false;
-//            }
-//        }
-//        System.out.println("\t\t[CADASTRADO COM SUCESSO]");
-//        Produtos.produto.add(produtoRecebido);
-//        return true;
-//    }
 
     public void setEscritor(String escritor) {
         this.escritor = escritor;

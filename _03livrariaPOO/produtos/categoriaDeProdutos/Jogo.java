@@ -1,5 +1,6 @@
 package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos;
 
+import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Funcionalidades;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.enumProdutos.CategoriaDeProdutos;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.Produtos;
 
@@ -13,8 +14,8 @@ public class Jogo extends Produtos {
         super(quantidade, nome, preco, genero);
         this.distribuidora = distribuidora;
         this.estudio = estudio;
-        this.categoriaProduto = CategoriaDeProdutos.Jogo;
-        adicionarQuantidadeNoEstoque(quantidade);
+        categoriaProduto = CategoriaDeProdutos.Jogo;
+        Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, categoriaProduto);
         id += 1;
         this.idGerada = "J"+ id;
     }

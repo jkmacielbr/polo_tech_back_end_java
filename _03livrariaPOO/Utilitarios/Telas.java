@@ -1,6 +1,7 @@
 package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios;
 
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Funcionalidades;
+
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.Produtos;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos.Album;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos.Filme;
@@ -27,9 +28,11 @@ public class Telas {
                 if (op == 1) {
                     telaDeCadastro();
                 } else if(op ==2){
-                    telaCaixa();
+                    if (Funcionalidades.isTemProdutoNoEsotque()) {
+                        telaCaixa();
+                    } else System.out.println("\t[OBRIGATÓRIO CADASTRAR AO MENOS 1 PRODUTO]");
                 } else if (op == 3) {
-                    if (Produtos.isTemProdutoNoEsotque()) telaDeEstoque();
+                    if (Funcionalidades.isTemProdutoNoEsotque()) telaDeEstoque();
                     else System.out.println("\t[OBRIGATÓRIO CADASTRAR AO MENOS 1 PRODUTO NO ESTOQUE]");
                 } else if (op != 0) {
                     System.out.println("\t\t\t[OPÇÃO INVÁLIDA]");
@@ -80,7 +83,7 @@ public class Telas {
 
             System.out.print("[5] ESTOQUE DE LIVROS \t" + "[6] ESTOQUE DE TOTAL\n");
             System.out.println("\tQTD ESTOQUE = [" + Livro.getQuantidadeEstoqueLivro()+
-                    "]"+ "\t\tQTD ESTOQUE = [" + Produtos.getQuantidadeEstoqueTotal()+"]");
+                    "]"+ "\t\tQTD ESTOQUE = [" + Livro.getQuantidadeEstoqueTotal()+"]");
             System.out.println();
             System.out.print("[7] ALTERAR\t");
             System.out.print("\t[8] REMOVER\t");
@@ -89,10 +92,10 @@ public class Telas {
 
             op = ValidacaoDeInputs.inputIsvalido();
             if (op == 6) {
-                Produtos.mostraTodoEstoque();
+                Funcionalidades.mostraTodoEstoque();
 
             } else if (op == 1 || op == 2 || op == 3 || op == 4 || op == 5) {
-                Produtos.mostraEstoquePorCategoria(op);
+                Funcionalidades.mostraEstoquePorCategoria(op);
             } else if (op == 7){
                 telaAlterarProduto();
 
@@ -116,8 +119,8 @@ public class Telas {
         System.out.print("ID PRODUTO PARA REALIZAR BUSCA: ");
         String idDoProduto = tc.nextLine();
 
-        if (Produtos.buscarProdutoPelaID(idDoProduto) != null){
-            System.out.println(Produtos.buscarProdutoPelaID(idDoProduto));
+        if (Funcionalidades.buscarProdutoPelaID(idDoProduto) != null){
+            System.out.println(Funcionalidades.buscarProdutoPelaID(idDoProduto));
         } else {
             System.out.println("\t\t[PRODUTO NÃO ENCONTRADO]");
         }
@@ -125,19 +128,19 @@ public class Telas {
     public void telaAlterarProduto() {
         System.out.print("ID PRODUTO PARA REALIZAR BUSCA: ");
         String idDoProduto = tc.nextLine();
-        if (Produtos.buscarProdutoPelaID(idDoProduto) != null) {
-            System.out.println(Produtos.buscarProdutoPelaID(idDoProduto));
-            Produtos.alterarProdutoCadastrado(Produtos.buscarProdutoPelaID(idDoProduto));
+        if (Funcionalidades.buscarProdutoPelaID(idDoProduto) != null) {
+            System.out.println(Funcionalidades.buscarProdutoPelaID(idDoProduto));
+            Funcionalidades.alterarProdutoCadastrado(Funcionalidades.buscarProdutoPelaID(idDoProduto));
         }
     }
     public void telaRemover(){
 
         System.out.print("ID PRODUTO PARA REALIZAR BUSCA: ");
         String idDoProduto = tc.nextLine();
-        if (Produtos.buscarProdutoPelaID(idDoProduto)!= null){
+        if (Funcionalidades.buscarProdutoPelaID(idDoProduto)!= null){
             System.out.print("Quantidade para remover: ");
             int quantidade = tc.nextInt();
-            Produtos.removeQuantidadeNoEstoqueDoProduto(idDoProduto, quantidade);
+            Funcionalidades.removeQuantidadeNoEstoqueDoProduto(idDoProduto, quantidade);
 
         }
     }
@@ -151,17 +154,17 @@ public class Telas {
 
         if(op == 1){
 
-            System.out.print("ID do Produto");
+            System.out.print("ID do Produto: ");
             String id = tc.nextLine();
-            if(Produtos.buscarProdutoPelaID(id) != null){
-                System.out.println(Produtos.buscarProdutoPelaID(id));
+            if(Funcionalidades.buscarProdutoPelaID(id) != null){
+                System.out.println(Funcionalidades.buscarProdutoPelaID(id));
                 System.out.println("[1] Realizar Venda");
                 System.out.println("[2] Cancelar Venda");
                 op = ValidacaoDeInputs.inputIsvalido();
 
                 if(op == 1){
                     System.out.print("Quantidade: ");
-                    Produtos.realizarVenda(Produtos.buscarProdutoPelaID(id), ValidacaoDeInputs.inputIsvalido());
+                    Funcionalidades.realizarVenda(Funcionalidades.buscarProdutoPelaID(id), ValidacaoDeInputs.inputIsvalido());
                     telaCaixa();
 
                 }else if (op == 2){

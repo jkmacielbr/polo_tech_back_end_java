@@ -1,5 +1,6 @@
 package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos;
 
+import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Funcionalidades;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.enumProdutos.CategoriaDeProdutos;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.Produtos;
 
@@ -14,8 +15,8 @@ public class Filme extends Produtos {
         this.estudio = estudio;
         this.diretores = diretores;
         this.produtores = produtores;
-        this.categoriaProduto = CategoriaDeProdutos.Filme;
-        adicionarQuantidadeNoEstoque(qantidade);
+        categoriaProduto = CategoriaDeProdutos.Filme;
+        Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, categoriaProduto);
         id += 1;
         this.idGerada = "F"+ id;
     }

@@ -1,5 +1,6 @@
 package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos;
 
+import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Funcionalidades;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.enumProdutos.CategoriaDeProdutos;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.Produtos;
 
@@ -13,8 +14,8 @@ public class Brinquedo extends Produtos {
     public Brinquedo(int quantidade, String nome, BigDecimal preco, String tipo) {
         super(quantidade, nome, preco);
         this.tipo = tipo;
-        this.categoriaProduto = CategoriaDeProdutos.Brinquedo;
-        adicionarQuantidadeNoEstoque(quantidade);
+        categoriaProduto = CategoriaDeProdutos.Brinquedo;
+        Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, categoriaProduto);
         id += 1;
         this.idGerada = "B"+ id;
 
