@@ -10,7 +10,7 @@ import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produto
 
 import java.util.Scanner;
 
-public class Telas {
+public class TelasUsuario {
     Scanner tc = new Scanner(System.in);
     int op;
 
