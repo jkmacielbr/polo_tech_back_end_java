@@ -20,7 +20,7 @@ public abstract class Produtos {
     public String idGerada;
     public BigDecimal preco;
     public CategoriaDeProdutos categoriaProduto;
-    public String genero;
+//    public String genero;
     public String dataDeCadastro;
     public static BigDecimal valorDeVendas = new BigDecimal("0.00");
     protected DecimalFormat formatarPreco = new DecimalFormat("0.00");
@@ -31,15 +31,6 @@ public abstract class Produtos {
         this.nome = nome;
         this.preco = preco;
         dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
-    }
-
-    public Produtos(int quantidade, String nome, BigDecimal preco, String genero) {
-        this.quantidade = quantidade;
-        this.nome = nome;
-        this.preco = preco;
-        dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
-        this.genero = genero;
-
     }
 
 
@@ -78,10 +69,7 @@ public abstract class Produtos {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
+    
 
     public void setPreco(BigDecimal preco) {
         this.preco = preco;

@@ -7,11 +7,12 @@ import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produto
 import java.math.BigDecimal;
 
 public class Livro extends Produtos {
-    public String escritor, editora;
+    public String escritor, editora, genero;
     private static int id = 0;
 
     public Livro(int quantidade, String nome, BigDecimal preco, String genero, String escritor, String editora) {
-        super(quantidade, nome, preco, genero);
+        super(quantidade, nome, preco);
+        this.genero = genero;
         categoriaProduto = CategoriaDeProdutos.Livro;
         this.escritor = escritor;
         this.editora = editora;
@@ -20,7 +21,9 @@ public class Livro extends Produtos {
         this.idGerada = "L" + id;
 
     }
-
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
     public void setEscritor(String escritor) {
         this.escritor = escritor;
     }

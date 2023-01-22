@@ -8,10 +8,11 @@ import java.math.BigDecimal;
 
 public class Filme extends Produtos {
     private static int id = 0;
-    private String estudio, diretores, produtores;
+    private String genero, estudio, diretores, produtores;
 
     public Filme(int qantidade, String nome, BigDecimal preco, String genero, String estudio, String diretores, String produtores) {
-        super(qantidade, nome, preco, genero);
+        super(qantidade, nome, preco);
+        this.genero = genero;
         this.estudio = estudio;
         this.diretores = diretores;
         this.produtores = produtores;
@@ -20,7 +21,9 @@ public class Filme extends Produtos {
         id += 1;
         this.idGerada = "F"+ id;
     }
-
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
     public void setEstudio(String estudio) {
         this.estudio = estudio;
     }

@@ -10,10 +10,11 @@ public class Album extends Produtos {
 
     private static int id = 0;
 
-    private String musicaOuBanda, selos;
+    private String musicaOuBanda, selos, genero;;
 
     public Album(int quantidade, String nome, BigDecimal preco, String genero, String musicaOuBanda, String selos) {
-        super(quantidade, nome, preco, genero);
+        super(quantidade, nome, preco);
+        this.genero = genero;
         this.musicaOuBanda = musicaOuBanda;
         this.selos = selos;
         categoriaProduto = CategoriaDeProdutos.Album;
@@ -29,6 +30,9 @@ public class Album extends Produtos {
 
     public void setSelos(String selos) {
         this.selos = selos;
+    }
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     @Override

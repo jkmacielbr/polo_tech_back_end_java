@@ -8,10 +8,11 @@ import java.math.BigDecimal;
 
 public class Jogo extends Produtos {
 
-    private String distribuidora, estudio;
+    private String genero, distribuidora, estudio;
 
     public Jogo(int quantidade, String nome, BigDecimal preco, String genero, String distribuidora, String estudio) {
-        super(quantidade, nome, preco, genero);
+        super(quantidade, nome, preco);
+        this.genero = genero;
         this.distribuidora = distribuidora;
         this.estudio = estudio;
         categoriaProduto = CategoriaDeProdutos.Jogo;
@@ -23,7 +24,9 @@ public class Jogo extends Produtos {
     public void setDistribuidora(String distribuidora) {
         this.distribuidora = distribuidora;
     }
-
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
     public void setEstudio(String estudio) {
         this.estudio = estudio;
     }
@@ -33,7 +36,8 @@ public class Jogo extends Produtos {
         return  "\t\t\t\t\t\t\t\t\t\t\t[Produto]" +
                 "\nID = " + idGerada +
                 super.toString() +
-                "\nDistribuidora = " + distribuidora +
+                "\nGenero = " + genero +
+                "\t\tDistribuidora = " + distribuidora +
                 "\t\tEtudio = " + estudio;
     }
 

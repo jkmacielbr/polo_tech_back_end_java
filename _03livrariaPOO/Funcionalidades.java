@@ -237,7 +237,7 @@ public class Funcionalidades {
                 }
                 case 4 -> {
                     System.out.print("Novo Genêro: ");
-                    produto.setGenero(tc.nextLine());
+                    ((Album) produto).setGenero(tc.nextLine());
                 }
                 case 5 -> {
                     System.out.print("Nova Música ou Banda: ");
@@ -272,7 +272,7 @@ public class Funcionalidades {
                 }
                 case 4 -> {
                     System.out.print("Novo Genêro: ");
-                    produto.setGenero(tc.nextLine());
+                    ((Filme) produto).setGenero(tc.nextLine());
                 }
                 case 5 -> {
                     System.out.print("Novo Estúdio: ");
@@ -311,7 +311,7 @@ public class Funcionalidades {
                 }
                 case 4 -> {
                     System.out.print("Novo Genêro: ");
-                    produto.setGenero(tc.nextLine());
+                    ((Jogo) produto).setGenero(tc.nextLine());
                 }
                 case 5 -> {
                     System.out.print("Nova Distribuidora: ");
@@ -346,7 +346,7 @@ public class Funcionalidades {
                 }
                 case 4 -> {
                     System.out.print("Novo Genêro: ");
-                    produto.setGenero(tc.nextLine());
+                    ((Livro) produto).setGenero(tc.nextLine());
                 }
                 case 5 -> {
                     System.out.print("Novo Escritor: ");
