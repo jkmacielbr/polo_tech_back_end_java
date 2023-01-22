@@ -19,7 +19,7 @@ public abstract class Produtos {
     public String nome;
     public String idGerada;
     public BigDecimal preco;
-    public  CategoriaDeProdutos categoriaProduto;
+    public CategoriaDeProdutos categoriaProduto;
     public String genero;
     public String dataDeCadastro;
     public static BigDecimal valorDeVendas = new BigDecimal("0.00");

@@ -22,6 +22,7 @@ public class Funcionalidades {
     static public String estudioFilmes, diretores, produtores; //FILMES
     public static String musicasOuBandas, selos; //ALBUM MÚSICAS
     public static String tipo; //BRINQUEDOS
+    static Scanner tc = new Scanner(System.in);
 
 
     public static boolean isTemProdutoNoEsotque() {
@@ -78,34 +79,31 @@ public class Funcionalidades {
 
     public static void mostraEstoquePorCategoria(int opcaoDaCategoria) {
 
-        for (Produtos categoriaProdutos : Produtos.produto) {
-            if (opcaoDaCategoria == 1 && Produtos.quantidadeEstoqueAlbum > 0 || Produtos.quantidadeEstoqueAlbum == 0 && categoriaProdutos != null) {
-                if (categoriaProdutos instanceof Album) {
-                    System.out.println(categoriaProdutos);
+        for (Produtos produto : Produtos.produto) {
+            if (opcaoDaCategoria == 1 && Produtos.quantidadeEstoqueAlbum > 0 || Produtos.quantidadeEstoqueAlbum == 0 && produto != null) {
+                if (produto instanceof Album) {
+                    System.out.println(produto + "\n");
                 }
-            } else if (opcaoDaCategoria == 2 && Produtos.quantidadeEstoqueBrinquedo > 0 || Produtos.quantidadeEstoqueBrinquedo == 0 && categoriaProdutos != null) {
-                if (categoriaProdutos instanceof Brinquedo) {
-                    System.out.println(categoriaProdutos);
+            } else if (opcaoDaCategoria == 2 && Produtos.quantidadeEstoqueBrinquedo > 0 || Produtos.quantidadeEstoqueBrinquedo == 0 && produto != null) {
+                if (produto instanceof Brinquedo) {
+                    System.out.println(produto + "\n");
                 }
-            } else if (opcaoDaCategoria == 3 && Produtos.quantidadeEstoqueFilme > 0 || Produtos.quantidadeEstoqueFilme == 0 && categoriaProdutos != null) {
-                if (categoriaProdutos instanceof Filme) {
-                    System.out.println(categoriaProdutos);
+            } else if (opcaoDaCategoria == 3 && Produtos.quantidadeEstoqueFilme > 0 || Produtos.quantidadeEstoqueFilme == 0 && produto != null) {
+                if (produto instanceof Filme) {
+                    System.out.println(produto + "\n");
                 }
-            } else if (opcaoDaCategoria == 4 && Produtos.quantidadeEstoqueJogo > 0 || Produtos.quantidadeEstoqueJogo == 0 && categoriaProdutos != null) {
-                if (categoriaProdutos instanceof Jogo) {
-                    System.out.println(categoriaProdutos);
+            } else if (opcaoDaCategoria == 4 && Produtos.quantidadeEstoqueJogo > 0 || Produtos.quantidadeEstoqueJogo == 0 && produto != null) {
+                if (produto instanceof Jogo) {
+                    System.out.println(produto + "\n");
                 }
-            } else if (opcaoDaCategoria == 5 && Produtos.quantidadeEstoqueLivro > 0 || Produtos.quantidadeEstoqueLivro == 0 && categoriaProdutos != null) {
-                if (categoriaProdutos instanceof Livro) {
-                    System.out.println(categoriaProdutos);
+            } else if (opcaoDaCategoria == 5 && Produtos.quantidadeEstoqueLivro > 0 || Produtos.quantidadeEstoqueLivro == 0 && produto != null) {
+                if (produto instanceof Livro) {
+                    System.out.println(produto + "\n");
                 }
-            } else if (opcaoDaCategoria == 10 && categoriaProdutos.quantidade == 0){
-                System.out.println(categoriaProdutos);
+            } else if (opcaoDaCategoria == 10 && produto.quantidade == 0) {
+                System.out.println(produto + "\n");
             }
         }
-
-
-
     }
 
     public static void adicionarQuantidadeNoEstoque(int quantidade, CategoriaDeProdutos categoriaProduto) {
@@ -177,200 +175,209 @@ public class Funcionalidades {
             if (produto.getIdgerada().equals(idUppercase)) {
                 return produto;
             }
-
         }
         return null;
     }
 
 
-    public static void alterarProdutoCadastrado(Produtos produtoCadastrado) {
-        int resposta;
+    public static void alterarProdutoCadastrado(int respostaUsuario, Produtos produto) {
         int quantidade;
-        Scanner tc = new Scanner(System.in);
-        System.out.println("\t\t\t\t\t\t\t\t\t\t\t[ESOLHA QUAL INFORMAÇÃO DESEJA ALTERAR]");
 
-        System.out.print("\t[1]NOME\t\t\t\t [2]PREÇO\t\t\t\t [3]QUANTIDADE\t\t\t\t");
-        if (produtoCadastrado instanceof Brinquedo) {
-            System.out.println(" [4]TIPO");
-            resposta = ValidacaoDeInputs.inputIsvalido();
-            if (resposta > 4) {
-                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
+        if (produto instanceof Brinquedo) {
+            switch (respostaUsuario) {
+                case 1 -> {
+                    System.out.print("Novo Nome: ");
 
-            } else if (resposta == 1) {
-                System.out.print("Novo Nome: ");
-                produtoCadastrado.setNome(tc.nextLine());
+                    produto.setNome(tc.nextLine());
 
-            } else if (resposta == 2) {
-                System.out.print("Novo Preço: ");
-                produtoCadastrado.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
 
-            } else if (resposta == 3) {
-                System.out.print("Adicionar quantidade: ");
-                quantidade = ValidacaoDeInputs.inputIsvalido();
-                if (validaQuantidade(quantidade)) {
-                    Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, produtoCadastrado.categoriaProduto);
-                    produtoCadastrado.quantidade += quantidade;
+                }
+                case 2 -> {
+                    System.out.print("Novo Preço: ");
+                    produto.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
+
                 }
 
+                case 3 -> {
+                    System.out.print("Adicionar quantidade: ");
+                    quantidade = ValidacaoDeInputs.inputIsvalido();
+                    if (validaQuantidade(quantidade)) {
+                        Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, produto.categoriaProduto);
+                        produto.quantidade += quantidade;
+                    }
 
-            } else if (resposta == 4) {
-                System.out.print("Novo tipo: ");
-                ((Brinquedo) produtoCadastrado).setTipo(tc.nextLine());
-
-            } else {
-                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
-            }
-            produtoCadastrado.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
-
-        } else {
-            System.out.println(" [4]GENÊRO \t\t");
-        }
-
-        if (produtoCadastrado instanceof Album) {
-            System.out.println(" [5]MÚSICAS OU BANDAS\t\t [6]SELOS \t");
-
-            resposta = ValidacaoDeInputs.inputIsvalido();
-            if (resposta == 1) {
-                System.out.print("Novo Nome: ");
-                produtoCadastrado.setNome(tc.nextLine());
-            } else if (resposta == 2) {
-                System.out.print("Novo Preço: ");
-                produtoCadastrado.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
-            } else if (resposta == 3) {
-                System.out.print("Adicionar quantidade: ");
-                quantidade = ValidacaoDeInputs.inputIsvalido();
-                if (validaQuantidade(quantidade)) {
-                    Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, produtoCadastrado.categoriaProduto);
-                    produtoCadastrado.quantidade += quantidade;
                 }
-
-            } else if (resposta == 4) {
-                System.out.print("Novo Genêro: ");
-                produtoCadastrado.setGenero(tc.nextLine());
-            } else if (resposta == 5) {
-                System.out.print("Nova Música ou Banda: ");
-                ((Album) produtoCadastrado).setMusicaOuBanda(tc.nextLine());
-            } else if (resposta == 6) {
-                System.out.print("Novo Selo: ");
-                ((Album) produtoCadastrado).setSelos(tc.nextLine());
-            } else {
-                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
-            }
-            produtoCadastrado.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
-        } else if (produtoCadastrado instanceof Filme) {
-            System.out.println(" [5]ESTÚDIOS\t\t [6]DIRETORIES\t\t [7]PRODUTORES\t\t [8]PRODUTORES");
-            resposta = ValidacaoDeInputs.inputIsvalido();
-            if (resposta == 1) {
-                System.out.print("Novo Nome: ");
-                produtoCadastrado.setNome(tc.nextLine());
-            } else if (resposta == 2) {
-                System.out.print("Novo Preço: ");
-                produtoCadastrado.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
-            } else if (resposta == 3) {
-                System.out.print("Adicionar quantidade: ");
-                quantidade = ValidacaoDeInputs.inputIsvalido();
-                if (validaQuantidade(quantidade)) {
-                    Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, produtoCadastrado.categoriaProduto);
-                    produtoCadastrado.quantidade += quantidade;
+                case 4 -> {
+                    System.out.print("Novo tipo: ");
+                    ((Brinquedo) produto).setTipo(tc.nextLine());
                 }
-
-            } else if (resposta == 4) {
-                System.out.print("Novo Genêro: ");
-                produtoCadastrado.setGenero(tc.nextLine());
-            } else if (resposta == 5) {
-                System.out.print("Novo Estúdio: ");
-                ((Filme) produtoCadastrado).setEstudio(tc.nextLine());
-            } else if (resposta == 6) {
-                System.out.print("Novo Diretor: ");
-                ((Filme) produtoCadastrado).setDiretores(tc.nextLine());
-            } else if (resposta == 7) {
-                System.out.print("Novo Produtor: ");
-                ((Filme) produtoCadastrado).setProdutores(tc.nextLine());
-            } else {
-                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
+                default -> System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
             }
-            produtoCadastrado.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
 
-        } else if (produtoCadastrado instanceof Jogo) {
-            System.out.println(" [5]DISTRIBUIDORA\t\t [6]ESTÚDIO");
-            resposta = ValidacaoDeInputs.inputIsvalido();
-            if (resposta == 1) {
-                System.out.print("Novo Nome: ");
-                produtoCadastrado.setNome(tc.nextLine());
-            } else if (resposta == 2) {
-                System.out.print("Novo Preço: ");
-                produtoCadastrado.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
-            } else if (resposta == 3) {
-                System.out.print("Adicionar quantidade: ");
+            produto.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
 
-                quantidade = ValidacaoDeInputs.inputIsvalido();
-                if (validaQuantidade(quantidade)) {
-                    Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, produtoCadastrado.categoriaProduto);
-                    produtoCadastrado.quantidade += quantidade;
+        } else if (produto instanceof Album) {
+
+            switch (respostaUsuario) {
+                case 1 -> {
+                    System.out.print("Novo Nome: ");
+                    produto.setNome(tc.nextLine());
                 }
-
-            } else if (resposta == 4) {
-                System.out.print("Novo Genêro: ");
-                produtoCadastrado.setGenero(tc.nextLine());
-            } else if (resposta == 5) {
-                System.out.print("Nova Distribuidora: ");
-                ((Jogo) produtoCadastrado).setDistribuidora(tc.nextLine());
-            } else if (resposta == 6) {
-                System.out.print("Novo Estúdio: ");
-                ((Jogo) produtoCadastrado).setEstudio(tc.nextLine());
-            } else {
-                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
-            }
-            produtoCadastrado.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
-
-        } else if (produtoCadastrado instanceof Livro) {
-            System.out.println(" [5]ESCRITOR\t\t [6]EDITORA");
-            resposta = ValidacaoDeInputs.inputIsvalido();
-            if (resposta == 1) {
-                System.out.print("Novo Nome: ");
-                produtoCadastrado.setNome(tc.nextLine());
-            } else if (resposta == 2) {
-                System.out.print("Novo Preço: ");
-                produtoCadastrado.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
-            } else if (resposta == 3) {
-                System.out.print("Adicionar quantidade: ");
-                quantidade = ValidacaoDeInputs.inputIsvalido();
-                if (validaQuantidade(quantidade)) {
-                    Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, produtoCadastrado.categoriaProduto);
-                    produtoCadastrado.quantidade += quantidade;
+                case 2 -> {
+                    System.out.print("Novo Preço: ");
+                    produto.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
                 }
-
-            } else if (resposta == 4) {
-                System.out.print("Novo Genêro: ");
-                produtoCadastrado.setGenero(tc.nextLine());
-            } else if (resposta == 5) {
-                System.out.print("Novo Escritor: ");
-                ((Livro) produtoCadastrado).setEscritor(tc.nextLine());
-            } else if (resposta == 6) {
-                System.out.print("Nova Editora: ");
-                ((Livro) produtoCadastrado).setEditora(tc.nextLine());
-            } else {
-                System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
+                case 3 -> {
+                    System.out.print("Adicionar quantidade: ");
+                    quantidade = ValidacaoDeInputs.inputIsvalido();
+                    if (validaQuantidade(quantidade)) {
+                        Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, produto.categoriaProduto);
+                        produto.quantidade += quantidade;
+                    }
+                }
+                case 4 -> {
+                    System.out.print("Novo Genêro: ");
+                    produto.setGenero(tc.nextLine());
+                }
+                case 5 -> {
+                    System.out.print("Nova Música ou Banda: ");
+                    ((Album) produto).setMusicaOuBanda(tc.nextLine());
+                }
+                case 6 -> {
+                    System.out.print("Novo Selo: ");
+                    ((Album) produto).setSelos(tc.nextLine());
+                }
+                default -> System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
             }
-            produtoCadastrado.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
+            produto.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
+
+        } else if (produto instanceof Filme) {
+
+            switch (respostaUsuario) {
+                case 1 -> {
+                    System.out.print("Novo Nome: ");
+                    produto.setNome(tc.nextLine());
+                }
+                case 2 -> {
+                    System.out.print("Novo Preço: ");
+                    produto.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
+                }
+                case 3 -> {
+                    System.out.print("Adicionar quantidade: ");
+                    quantidade = ValidacaoDeInputs.inputIsvalido();
+                    if (validaQuantidade(quantidade)) {
+                        Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, produto.categoriaProduto);
+                        produto.quantidade += quantidade;
+                    }
+                }
+                case 4 -> {
+                    System.out.print("Novo Genêro: ");
+                    produto.setGenero(tc.nextLine());
+                }
+                case 5 -> {
+                    System.out.print("Novo Estúdio: ");
+                    ((Filme) produto).setEstudio(tc.nextLine());
+                }
+                case 6 -> {
+                    System.out.print("Novo Diretor: ");
+                    ((Filme) produto).setDiretores(tc.nextLine());
+                }
+                case 7 -> {
+                    System.out.print("Novo Produtor: ");
+                    ((Filme) produto).setProdutores(tc.nextLine());
+                }
+                default -> System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
+            }
+            produto.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
+        } else if (produto instanceof Jogo) {
+
+            switch (respostaUsuario) {
+                case 1 -> {
+                    System.out.print("Novo Nome: ");
+                    produto.setNome(tc.nextLine());
+                }
+                case 2 -> {
+                    System.out.print("Novo Preço: ");
+                    produto.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
+                }
+                case 3 -> {
+                    System.out.print("Adicionar quantidade: ");
+
+                    quantidade = ValidacaoDeInputs.inputIsvalido();
+                    if (validaQuantidade(quantidade)) {
+                        Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, produto.categoriaProduto);
+                        produto.quantidade += quantidade;
+                    }
+                }
+                case 4 -> {
+                    System.out.print("Novo Genêro: ");
+                    produto.setGenero(tc.nextLine());
+                }
+                case 5 -> {
+                    System.out.print("Nova Distribuidora: ");
+                    ((Jogo) produto).setDistribuidora(tc.nextLine());
+                }
+                case 6 -> {
+                    System.out.print("Novo Estúdio: ");
+                    ((Jogo) produto).setEstudio(tc.nextLine());
+                }
+                default -> System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
+
+            }
+            produto.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
+        } else if (produto instanceof Livro) {
+
+            switch (respostaUsuario) {
+                case 1 -> {
+                    System.out.print("Novo Nome: ");
+                    produto.setNome(tc.nextLine());
+                }
+                case 2 -> {
+                    System.out.print("Novo Preço: ");
+                    produto.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
+                }
+                case 3 -> {
+                    System.out.print("Adicionar quantidade: ");
+                    quantidade = ValidacaoDeInputs.inputIsvalido();
+                    if (validaQuantidade(quantidade)) {
+                        Funcionalidades.adicionarQuantidadeNoEstoque(quantidade, produto.categoriaProduto);
+                        produto.quantidade += quantidade;
+                    }
+                }
+                case 4 -> {
+                    System.out.print("Novo Genêro: ");
+                    produto.setGenero(tc.nextLine());
+                }
+                case 5 -> {
+                    System.out.print("Novo Escritor: ");
+                    ((Livro) produto).setEscritor(tc.nextLine());
+                }
+                case 6 -> {
+                    System.out.print("Nova Editora: ");
+                    ((Livro) produto).setEditora(tc.nextLine());
+                }
+                default -> System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
+
+            }
+            produto.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
         }
 
     }
+
 
     public static boolean validaQuantidade(int quantidade) {
         if (quantidade > 0) {
             return true;
-        } else System.out.println("\t[INFORMAR QUANTIDADE MAIOR QUE 0]");
+        } else System.out.println("\t\t\n[INFORMAR QUANTIDADE MAIOR QUE 0]\n");
         return false;
 
     }
-
 
     public static void realizarVenda(Produtos produto, int quantidadeVender) {
         if (validaQuantidade(quantidadeVender)) {
             if (removeQuantidadeNoEstoqueDoProduto(produto.idGerada, quantidadeVender)) {
                 Produtos.valorDeVendas = Produtos.valorDeVendas.add(produto.preco.multiply(new BigDecimal(quantidadeVender)));
-            } else System.out.println("Venda não realizada");
+            } else System.out.println("\t\t[VENDA NÃO REALIZADA]\n");
 
         }
     }
