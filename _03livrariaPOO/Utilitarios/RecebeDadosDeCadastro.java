@@ -1,7 +1,5 @@
 package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios;
 
-import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Funcionalidades;
-
 import java.math.BigDecimal;
 import java.util.Scanner;
 

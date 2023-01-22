@@ -1,6 +1,6 @@
 package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos;
 
-import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Funcionalidades;
+import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios.Funcionalidades;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.enumProdutos.CategoriaDeProdutos;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.Produtos;
 
@@ -11,7 +11,7 @@ public class Album extends Produtos {
     private static int id = 0;
     public static  int quantidadeEstoqueAlbum;
 
-    private String musicaOuBanda, selos, genero;;
+    private String musicaOuBanda, selos, genero;
 
     public Album(int quantidade, String nome, BigDecimal preco, String genero, String musicaOuBanda, String selos) {
         super(quantidade, nome, preco);

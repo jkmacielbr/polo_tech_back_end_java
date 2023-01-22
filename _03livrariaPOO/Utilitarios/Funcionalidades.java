@@ -1,8 +1,5 @@
-package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO;
+package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios;
 
-import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios.GeradorDeData;
-import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios.RecebeDadosDeCadastro;
-import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios.ValidacaoDeInputs;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.enumProdutos.CategoriaDeProdutos;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.Produtos;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos.*;
@@ -65,12 +62,14 @@ public class Funcionalidades {
     }
 
     public static void mostraTodoEstoque() {
-        if (Produtos.produto.size() == 0) {
-            System.out.println("\t[Estoque vazio]");
-        } else {
+        if (isTemProdutoNoEsotque()) {
             for (Produtos produtos : Produtos.produto) {
                 System.out.println(produtos);
             }
+        } else {
+
+                System.out.println("\t[Estoque vazio]");
+
 
         }
     }
@@ -138,7 +137,7 @@ public class Funcionalidades {
                     return false;
                 }
                 if (p.getIdgerada().equals(idUppercase) && quantidade <= p.quantidade) {
-                    p.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
+                    p.dataDeCadastro = FormataData.geraDataDeCadastro(new Date());
 
                     p.quantidade -= quantidade;
 
@@ -217,7 +216,7 @@ public class Funcionalidades {
                 default -> System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
             }
 
-            produto.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
+            produto.dataDeCadastro = FormataData.geraDataDeCadastro(new Date());
 
         } else if (produto instanceof Album) {
 
@@ -252,7 +251,7 @@ public class Funcionalidades {
                 }
                 default -> System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
             }
-            produto.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
+            produto.dataDeCadastro = FormataData.geraDataDeCadastro(new Date());
 
         } else if (produto instanceof Filme) {
 
@@ -291,7 +290,7 @@ public class Funcionalidades {
                 }
                 default -> System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
             }
-            produto.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
+            produto.dataDeCadastro = FormataData.geraDataDeCadastro(new Date());
         } else if (produto instanceof Jogo) {
 
             switch (respostaUsuario) {
@@ -327,7 +326,7 @@ public class Funcionalidades {
                 default -> System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
 
             }
-            produto.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
+            produto.dataDeCadastro = FormataData.geraDataDeCadastro(new Date());
         } else if (produto instanceof Livro) {
 
             switch (respostaUsuario) {
@@ -362,7 +361,7 @@ public class Funcionalidades {
                 default -> System.out.println("\t\t\t\t\t\t\t\t\t\t\t\t[OPÇÃO INVÁLIDA]");
 
             }
-            produto.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
+            produto.dataDeCadastro = FormataData.geraDataDeCadastro(new Date());
         }
 
     }

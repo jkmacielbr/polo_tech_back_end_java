@@ -1,7 +1,5 @@
 package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios;
 
-import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Funcionalidades;
-
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.Produtos;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos.categoriaDeProdutos.*;
 
@@ -82,7 +80,7 @@ public class TelasUsuario {
                     "]" + "\t\tQTD ESTOQUE = [" + Jogo.getQuantidadeEstoqueJogo() + "]");
             System.out.println();
 
-            System.out.print("[5] ESTOQUE DE LIVROS \t" + "[6] ESTOQUE DE TOTAL\n");
+            System.out.print("[5] ESTOQUE DE LIVROS \t" + "[6] ESTOQUE DE TODOS OS PRODUTOS\n");
             System.out.println("\tQTD ESTOQUE = [" + Livro.getQuantidadeEstoqueLivro() +
                     "]" + "\t\tQTD ESTOQUE = [" + Funcionalidades.quantidadeEstoqueTotal() + "]");
             System.out.println();
@@ -104,7 +102,7 @@ public class TelasUsuario {
                 telaAlterarProduto();
 
             } else if (respostaUsuario == 8) {
-                telaRemover();
+                telaRemoveQuantidade();
 
             } else if (respostaUsuario == 9) {
                 telaBuscaProduto();
@@ -166,7 +164,7 @@ public class TelasUsuario {
             }
         }
     }
-    public void telaRemover() {
+    public void telaRemoveQuantidade() {
 
         System.out.print("ID PRODUTO PARA REALIZAR BUSCA: ");
         String idDoProduto = tc.nextLine();

@@ -1,7 +1,7 @@
 package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produtos;
 
 
-import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios.GeradorDeData;
+import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios.FormataData;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.enumProdutos.CategoriaDeProdutos;
 
 
@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public abstract class Produtos {
-
     public int quantidade;
     public String nome;
     public String idGerada;
@@ -27,9 +26,8 @@ public abstract class Produtos {
         this.quantidade = quantidade;
         this.nome = nome;
         this.preco = preco;
-        dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
+        dataDeCadastro = FormataData.geraDataDeCadastro(new Date());
     }
-
 
     public String getNome() {
         return nome;
@@ -39,14 +37,10 @@ public abstract class Produtos {
         return idGerada;
     }
 
-//    public static int getQuantidadeEstoqueTotal() {
-//        return quantidadeEstoqueTotal;
-//    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
 
     public void setPreco(BigDecimal preco) {
         this.preco = preco;
