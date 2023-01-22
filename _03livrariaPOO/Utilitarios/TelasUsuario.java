@@ -75,7 +75,7 @@ public class TelasUsuario {
                     """);
 
             System.out.println("\tQTD ESTOQUE = [" + Album.getQuantidadeEstoqueAlbum() +
-                    "]" + "\t\tQTD ESTOQUE = [" + Album.getQuantidadeEstoqueBrinquedo() + "]");
+                    "]" + "\t\tQTD ESTOQUE = [" + Brinquedo.getQuantidadeEstoqueBrinquedo() + "]");
             System.out.println();
             System.out.print("[3] ESTOQUE DE FILMES \t" + "[4] ESTOQUE DE JOGOS\n");
             System.out.println("\tQTD ESTOQUE = [" + Filme.getQuantidadeEstoqueFilme() +
@@ -84,7 +84,7 @@ public class TelasUsuario {
 
             System.out.print("[5] ESTOQUE DE LIVROS \t" + "[6] ESTOQUE DE TOTAL\n");
             System.out.println("\tQTD ESTOQUE = [" + Livro.getQuantidadeEstoqueLivro() +
-                    "]" + "\t\tQTD ESTOQUE = [" + Livro.getQuantidadeEstoqueTotal() + "]");
+                    "]" + "\t\tQTD ESTOQUE = [" + Funcionalidades.quantidadeEstoqueTotal() + "]");
             System.out.println();
             System.out.print("[7] ALTERAR\t");
             System.out.print("\t[8] REMOVER\t");

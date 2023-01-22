@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 public class Livro extends Produtos {
     public String escritor, editora, genero;
     private static int id = 0;
+    public static int quantidadeEstoqueLivro;
 
     public Livro(int quantidade, String nome, BigDecimal preco, String genero, String escritor, String editora) {
         super(quantidade, nome, preco);
@@ -30,6 +31,9 @@ public class Livro extends Produtos {
 
     public void setEditora(String editora) {
         this.editora = editora;
+    }
+    public static int getQuantidadeEstoqueLivro() {
+        return quantidadeEstoqueLivro;
     }
 
     @Override

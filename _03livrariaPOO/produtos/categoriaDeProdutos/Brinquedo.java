@@ -10,6 +10,7 @@ public class Brinquedo extends Produtos {
 
     private static int id = 0;
     private String tipo;
+    public static int quantidadeEstoqueBrinquedo;
 
     public Brinquedo(int quantidade, String nome, BigDecimal preco, String tipo) {
         super(quantidade, nome, preco);
@@ -23,6 +24,10 @@ public class Brinquedo extends Produtos {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public static int getQuantidadeEstoqueBrinquedo() {
+        return quantidadeEstoqueBrinquedo;
     }
 
     @Override

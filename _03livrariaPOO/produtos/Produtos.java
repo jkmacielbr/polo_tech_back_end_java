@@ -4,6 +4,7 @@ package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.produt
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios.GeradorDeData;
 import br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.enumProdutos.CategoriaDeProdutos;
 
+
 import java.math.BigDecimal;
 
 import java.text.DecimalFormat;
@@ -12,15 +13,11 @@ import java.util.Date;
 
 public abstract class Produtos {
 
-    protected static int id = 0;
-    public static int quantidadeEstoqueTotal, quantidadeEstoqueAlbum, quantidadeEstoqueBrinquedo,
-            quantidadeEstoqueFilme, quantidadeEstoqueJogo, quantidadeEstoqueLivro;
     public int quantidade;
     public String nome;
     public String idGerada;
     public BigDecimal preco;
     public CategoriaDeProdutos categoriaProduto;
-//    public String genero;
     public String dataDeCadastro;
     public static BigDecimal valorDeVendas = new BigDecimal("0.00");
     protected DecimalFormat formatarPreco = new DecimalFormat("0.00");
@@ -42,29 +39,9 @@ public abstract class Produtos {
         return idGerada;
     }
 
-    public static int getQuantidadeEstoqueTotal() {
-        return quantidadeEstoqueTotal;
-    }
-
-    public static int getQuantidadeEstoqueAlbum() {
-        return quantidadeEstoqueAlbum;
-    }
-
-    public static int getQuantidadeEstoqueBrinquedo() {
-        return quantidadeEstoqueBrinquedo;
-    }
-
-    public static int getQuantidadeEstoqueFilme() {
-        return quantidadeEstoqueFilme;
-    }
-
-    public static int getQuantidadeEstoqueJogo() {
-        return quantidadeEstoqueJogo;
-    }
-
-    public static int getQuantidadeEstoqueLivro() {
-        return quantidadeEstoqueLivro;
-    }
+//    public static int getQuantidadeEstoqueTotal() {
+//        return quantidadeEstoqueTotal;
+//    }
 
     public void setNome(String nome) {
         this.nome = nome;

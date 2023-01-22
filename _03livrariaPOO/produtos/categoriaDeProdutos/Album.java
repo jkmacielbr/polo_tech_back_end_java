@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 public class Album extends Produtos {
 
     private static int id = 0;
+    public static  int quantidadeEstoqueAlbum;
 
     private String musicaOuBanda, selos, genero;;
 
@@ -33,6 +34,9 @@ public class Album extends Produtos {
     }
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+    public static int getQuantidadeEstoqueAlbum() {
+        return quantidadeEstoqueAlbum;
     }
 
     @Override

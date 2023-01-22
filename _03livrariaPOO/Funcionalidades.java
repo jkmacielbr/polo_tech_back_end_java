@@ -16,14 +16,12 @@ public class Funcionalidades {
     public static int quantidade = 0;
     public static String nome, genero;
     public static BigDecimal preco;
-
     static public String escritor, editora; //LIVROS
     static public String distribuidora, estudioJogos; //JOGOS
     static public String estudioFilmes, diretores, produtores; //FILMES
     public static String musicasOuBandas, selos; //ALBUM MÚSICAS
     public static String tipo; //BRINQUEDOS
     static Scanner tc = new Scanner(System.in);
-
 
     public static boolean isTemProdutoNoEsotque() {
         return Produtos.produto.size() != 0;
@@ -77,26 +75,31 @@ public class Funcionalidades {
         }
     }
 
+    public static int quantidadeEstoqueTotal(){
+        return Album.quantidadeEstoqueAlbum + Brinquedo.quantidadeEstoqueBrinquedo + Filme.quantidadeEstoqueFilme
+                + Jogo.quantidadeEstoqueJogo + Livro.quantidadeEstoqueLivro;
+    }
+
     public static void mostraEstoquePorCategoria(int opcaoDaCategoria) {
 
         for (Produtos produto : Produtos.produto) {
-            if (opcaoDaCategoria == 1 && Produtos.quantidadeEstoqueAlbum > 0 || Produtos.quantidadeEstoqueAlbum == 0 && produto != null) {
+            if (opcaoDaCategoria == 1 && Album.quantidadeEstoqueAlbum > 0 || Album.quantidadeEstoqueAlbum == 0 && produto != null) {
                 if (produto instanceof Album) {
                     System.out.println(produto + "\n");
                 }
-            } else if (opcaoDaCategoria == 2 && Produtos.quantidadeEstoqueBrinquedo > 0 || Produtos.quantidadeEstoqueBrinquedo == 0 && produto != null) {
+            } else if (opcaoDaCategoria == 2 && Brinquedo.quantidadeEstoqueBrinquedo > 0 || Brinquedo.quantidadeEstoqueBrinquedo == 0 && produto != null) {
                 if (produto instanceof Brinquedo) {
                     System.out.println(produto + "\n");
                 }
-            } else if (opcaoDaCategoria == 3 && Produtos.quantidadeEstoqueFilme > 0 || Produtos.quantidadeEstoqueFilme == 0 && produto != null) {
+            } else if (opcaoDaCategoria == 3 && Filme.quantidadeEstoqueFilme > 0 || Filme.quantidadeEstoqueFilme == 0 && produto != null) {
                 if (produto instanceof Filme) {
                     System.out.println(produto + "\n");
                 }
-            } else if (opcaoDaCategoria == 4 && Produtos.quantidadeEstoqueJogo > 0 || Produtos.quantidadeEstoqueJogo == 0 && produto != null) {
+            } else if (opcaoDaCategoria == 4 && Jogo.quantidadeEstoqueJogo > 0 || Jogo.quantidadeEstoqueJogo == 0 && produto != null) {
                 if (produto instanceof Jogo) {
                     System.out.println(produto + "\n");
                 }
-            } else if (opcaoDaCategoria == 5 && Produtos.quantidadeEstoqueLivro > 0 || Produtos.quantidadeEstoqueLivro == 0 && produto != null) {
+            } else if (opcaoDaCategoria == 5 && Livro.quantidadeEstoqueLivro > 0 || Livro.quantidadeEstoqueLivro == 0 && produto != null) {
                 if (produto instanceof Livro) {
                     System.out.println(produto + "\n");
                 }
@@ -108,17 +111,17 @@ public class Funcionalidades {
 
     public static void adicionarQuantidadeNoEstoque(int quantidade, CategoriaDeProdutos categoriaProduto) {
         if (validaQuantidade(quantidade)) {
-            Produtos.quantidadeEstoqueTotal = Produtos.quantidadeEstoqueTotal + quantidade;
+
             if (categoriaProduto == CategoriaDeProdutos.Album) {
-                Produtos.quantidadeEstoqueAlbum = Produtos.quantidadeEstoqueAlbum + quantidade;
+                Album.quantidadeEstoqueAlbum = Album.quantidadeEstoqueAlbum + quantidade;
             } else if (categoriaProduto == CategoriaDeProdutos.Brinquedo) {
-                Produtos.quantidadeEstoqueBrinquedo = Produtos.quantidadeEstoqueBrinquedo + quantidade;
+                Brinquedo.quantidadeEstoqueBrinquedo = Brinquedo.quantidadeEstoqueBrinquedo + quantidade;
             } else if (categoriaProduto == CategoriaDeProdutos.Filme) {
-                Produtos.quantidadeEstoqueFilme = Produtos.quantidadeEstoqueFilme + quantidade;
+                Filme.quantidadeEstoqueFilme = Filme.quantidadeEstoqueFilme + quantidade;
             } else if (categoriaProduto == CategoriaDeProdutos.Jogo) {
-                Produtos.quantidadeEstoqueJogo = Produtos.quantidadeEstoqueJogo + quantidade;
+                Jogo.quantidadeEstoqueJogo = Jogo.quantidadeEstoqueJogo + quantidade;
             } else if (categoriaProduto == CategoriaDeProdutos.Livro) {
-                Produtos.quantidadeEstoqueLivro = Produtos.quantidadeEstoqueLivro + quantidade;
+                Livro.quantidadeEstoqueLivro = Livro.quantidadeEstoqueLivro + quantidade;
             }
         }
     }
@@ -129,33 +132,33 @@ public class Funcionalidades {
         if (validaQuantidade(quantidade)) {
             for (Produtos p : Produtos.produto) {
 
-                if (quantidade > Produtos.quantidadeEstoqueTotal || quantidade > p.quantidade && p.idGerada.equals(idUppercase)) {
+                if (quantidade > p.quantidade && p.idGerada.equals(idUppercase)) {
                     System.out.println("\n\t\t\t\t[QUANTIDADE NÃO DISPONIVEL EM ESTOQUE]\n[Nome do produto: " + p.getNome() +
                             "]\t [Categoria: " + p.categoriaProduto + "]\t Quantidade no estoque: " + p.quantidade + "\n");
                     return false;
                 }
-                if (p.getIdgerada().equals(idUppercase) && Produtos.quantidadeEstoqueTotal >= quantidade && quantidade <= p.quantidade) {
+                if (p.getIdgerada().equals(idUppercase) && quantidade <= p.quantidade) {
                     p.dataDeCadastro = GeradorDeData.geraDataDeCadastro(new Date());
-                    Produtos.quantidadeEstoqueTotal -= quantidade;
+
                     p.quantidade -= quantidade;
 
                     if (p instanceof Album) {
-                        Produtos.quantidadeEstoqueAlbum -= quantidade;
+                        Album.quantidadeEstoqueAlbum -= quantidade;
 
                     } else if (p instanceof Brinquedo) {
-                        Produtos.quantidadeEstoqueBrinquedo -= quantidade;
+                        Brinquedo.quantidadeEstoqueBrinquedo -= quantidade;
 //
 
                     } else if (p instanceof Filme) {
-                        Produtos.quantidadeEstoqueFilme -= quantidade;
+                       Filme.quantidadeEstoqueFilme -= quantidade;
 //
 
                     } else if (p instanceof Jogo) {
-                        Produtos.quantidadeEstoqueJogo -= quantidade;
+                        Jogo.quantidadeEstoqueJogo -= quantidade;
 //
 
                     } else if (p instanceof Livro) {
-                        Produtos.quantidadeEstoqueLivro -= quantidade;
+                        Livro.quantidadeEstoqueLivro -= quantidade;
 //
                     }
                     System.out.println("\n\t\t\t\t[QUANTIDADE REMOVIDA DO ESTOQUE ]\n[Nome do produto: " + p.getNome() +

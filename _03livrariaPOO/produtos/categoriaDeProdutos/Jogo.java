@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 public class Jogo extends Produtos {
 
     private String genero, distribuidora, estudio;
+    static int id = 0;
+    public static int quantidadeEstoqueJogo;
 
     public Jogo(int quantidade, String nome, BigDecimal preco, String genero, String distribuidora, String estudio) {
         super(quantidade, nome, preco);
@@ -29,6 +31,9 @@ public class Jogo extends Produtos {
     }
     public void setEstudio(String estudio) {
         this.estudio = estudio;
+    }
+    public static int getQuantidadeEstoqueJogo() {
+        return quantidadeEstoqueJogo;
     }
 
     @Override
