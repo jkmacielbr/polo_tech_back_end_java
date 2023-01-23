@@ -196,7 +196,7 @@ public class Funcionalidades {
                 }
                 case 2 -> {
                     System.out.print("Novo Preço: ");
-                    produto.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
+                    produto.setPreco(ValidacaoDeInputs.inputIsReal());
 
                 }
 
@@ -227,7 +227,7 @@ public class Funcionalidades {
                 }
                 case 2 -> {
                     System.out.print("Novo Preço: ");
-                    produto.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
+                    produto.setPreco(ValidacaoDeInputs.inputIsReal());
                 }
                 case 3 -> {
                     System.out.print("Adicionar quantidade: ");
@@ -262,7 +262,7 @@ public class Funcionalidades {
                 }
                 case 2 -> {
                     System.out.print("Novo Preço: ");
-                    produto.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
+                    produto.setPreco(ValidacaoDeInputs.inputIsReal());
                 }
                 case 3 -> {
                     System.out.print("Adicionar quantidade: ");
@@ -300,7 +300,7 @@ public class Funcionalidades {
                 }
                 case 2 -> {
                     System.out.print("Novo Preço: ");
-                    produto.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
+                    produto.setPreco(ValidacaoDeInputs.inputIsReal());
                 }
                 case 3 -> {
                     System.out.print("Adicionar quantidade: ");
@@ -336,7 +336,7 @@ public class Funcionalidades {
                 }
                 case 2 -> {
                     System.out.print("Novo Preço: ");
-                    produto.setPreco(BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido()));
+                    produto.setPreco(ValidacaoDeInputs.inputIsReal());
                 }
                 case 3 -> {
                     System.out.print("Adicionar quantidade: ");

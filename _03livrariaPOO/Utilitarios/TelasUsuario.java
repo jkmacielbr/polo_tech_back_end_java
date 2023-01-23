@@ -178,7 +178,7 @@ public class TelasUsuario {
 
     public void telaCaixa() {
         System.out.println("\t\t[CAIXA]");
-        System.out.println("VALOR VENDIDO: R$" + Produtos.getValorDeVendas());
+        System.out.println("VALOR VENDIDO: R$" + Produtos.valorVendasFormatado());
         System.out.println("[1] REALIZAR VENDA");
         System.out.println("[2] SAIR DO CAIXA");
         respostaUsuario = ValidacaoDeInputs.inputIsvalido();

@@ -1,6 +1,5 @@
 package br.com.americanas.desafios.polo_tech_back_end_java._03livrariaPOO.Utilitarios;
 
-import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class RecebeDadosDeCadastro {
@@ -15,7 +14,7 @@ public class RecebeDadosDeCadastro {
         System.out.print("Nome: ");
         Funcionalidades.nome = tc.nextLine();
         System.out.print("Preço: ");
-        Funcionalidades.preco = BigDecimal.valueOf(ValidacaoDeInputs.inputIsvalido());
+        Funcionalidades.preco = ValidacaoDeInputs.inputIsReal();
         if (op == 1 || op == 3 || op == 4 || op == 5) {
             System.out.print("Gênero: ");
             Funcionalidades.genero = tc.nextLine();
