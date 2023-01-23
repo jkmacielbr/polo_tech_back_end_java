@@ -82,28 +82,31 @@ public class Funcionalidades {
     public static void mostraEstoquePorCategoria(int opcaoDaCategoria) {
 
         for (Produtos produto : Produtos.produto) {
-            if (opcaoDaCategoria == 1 && Album.quantidadeEstoqueAlbum > 0 || Album.quantidadeEstoqueAlbum == 0 && produto != null) {
-                if (produto instanceof Album) {
-                    System.out.println(produto + "\n");
-                }
-            } else if (opcaoDaCategoria == 2 && Brinquedo.quantidadeEstoqueBrinquedo > 0 || Brinquedo.quantidadeEstoqueBrinquedo == 0 && produto != null) {
-                if (produto instanceof Brinquedo) {
-                    System.out.println(produto + "\n");
-                }
-            } else if (opcaoDaCategoria == 3 && Filme.quantidadeEstoqueFilme > 0 || Filme.quantidadeEstoqueFilme == 0 && produto != null) {
-                if (produto instanceof Filme) {
-                    System.out.println(produto + "\n");
-                }
-            } else if (opcaoDaCategoria == 4 && Jogo.quantidadeEstoqueJogo > 0 || Jogo.quantidadeEstoqueJogo == 0 && produto != null) {
-                if (produto instanceof Jogo) {
-                    System.out.println(produto + "\n");
-                }
-            } else if (opcaoDaCategoria == 5 && Livro.quantidadeEstoqueLivro > 0 || Livro.quantidadeEstoqueLivro == 0 && produto != null) {
-                if (produto instanceof Livro) {
-                    System.out.println(produto + "\n");
-                }
-            } else if (opcaoDaCategoria == 10 && produto.quantidade == 0) {
+            if (opcaoDaCategoria == 10 && produto.quantidade == 0) {
                 System.out.println(produto + "\n");
+            }else {
+
+                if (opcaoDaCategoria == 1 && Album.quantidadeEstoqueAlbum > 0 || opcaoDaCategoria == 1 && Album.quantidadeEstoqueAlbum == 0 && produto != null) {
+                    if (produto instanceof Album) {
+                        System.out.println(produto + "\n");
+                    }
+                } else if (opcaoDaCategoria == 2 && Brinquedo.quantidadeEstoqueBrinquedo > 0 || opcaoDaCategoria == 2 && Brinquedo.quantidadeEstoqueBrinquedo == 0 && produto != null) {
+                    if (produto instanceof Brinquedo) {
+                        System.out.println(produto + "\n");
+                    }
+                } else if (opcaoDaCategoria == 3 && Filme.quantidadeEstoqueFilme > 0 || opcaoDaCategoria == 3 && Filme.quantidadeEstoqueFilme == 0 && produto != null) {
+                    if (produto instanceof Filme) {
+                        System.out.println(produto + "\n");
+                    }
+                } else if (opcaoDaCategoria == 4 && Jogo.quantidadeEstoqueJogo > 0 || opcaoDaCategoria == 4 && Jogo.quantidadeEstoqueJogo == 0 && produto != null) {
+                    if (produto instanceof Jogo) {
+                        System.out.println(produto + "\n");
+                    }
+                } else if (opcaoDaCategoria == 5 && Livro.quantidadeEstoqueLivro > 0 || opcaoDaCategoria == 5 && Livro.quantidadeEstoqueLivro == 0 && produto != null) {
+                    if (produto instanceof Livro) {
+                        System.out.println(produto + "\n");
+                    }
+                }
             }
         }
     }

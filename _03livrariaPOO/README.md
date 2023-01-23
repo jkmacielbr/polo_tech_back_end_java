@@ -1,4 +1,4 @@
-# Exercícios Turma 925 Polo Tech Back-End
+# Exercício Turma 925 Polo Tech Back-End
 
 
 ## Exercício Livraria

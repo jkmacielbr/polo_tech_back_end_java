@@ -204,6 +204,7 @@ public class TelasUsuario {
                     telaCaixa();
                 } else {
                     System.out.println("\t\t\t\t[OPÇÃO INVÁLIDA]");
+                    telaCaixa();
                 }
             } else System.out.println("\t\t\t[ID DE PRODUTO NÃO ENCONTRADA]");
             telaCaixa();
