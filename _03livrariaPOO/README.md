@@ -17,13 +17,13 @@ O objetivo do exercício era desenvolver um sistema de livraria aplicando os con
 
 Iniciei a implementação do código criando a nossa classe abstract Produtos que é uma 
 [Classe Abstrata](https://www.devmedia.com.br/conceitos-classes-abstratas-programacao-orientada-a-objetos/18812), 
-pois ela não será instanciada, mas sim herdada pelas suas subclasse e servirá de modelo para suas filhas, assim essa classe é utilizada para implementar 
+pois ela não será instanciada, mas sim herdada pela suas subclasse e servirá de modelo para suas filhas, assim essa classe é utilizada para implementar 
 o conceito de [Herança](https://www.devmedia.com.br/conceitos-e-exemplos-heranca-programacao-orientada-a-objetos-parte-1/18579), 
 com isso foi criado os atributos que todas as subclasses precisam herda.
 Para implementar a categoria dos Produtos foi criado um 
 [Enum](https://www.devmedia.com.br/tipos-enum-no-java/25729#:~:text=S%C3%A3o%20tipos%20de%20campos%20que,implicitamente%20estendem%20a%20classe%20java.) 
-de CategoriaDeProdutos que pode ser definido como uma lista de valores pré-definidos. após definir o enums, partir para a criação das subclasses de Produtos,
-sendo elas Album, Brinquedo, Filme, Jogo, Livro: dentro de cada classe foi criado seus atributos de acordo com o requisitos solicitados.
+de CategoriaDeProdutos que pode ser definido como uma lista de valores pré-definidos. Após definir o enums partir para a criação das subclasses de Produtos,
+sendo elas Album, Brinquedo, Filme, Jogo e Livro: dentro de cada classe foi criado seus atributos de acordo com os requisitos solicitados.
 
 Então continuei a implementação construindo uma 
 
@@ -33,21 +33,21 @@ do que o usuário for escolhendo, temos os
 
 telaMenuInicial(), telaDeCadastro(), telaDeEstoque(), telaBuscarProduto,, telaAlterarProduto, telaRemoveQuantidade(), telaCaixa.
 
-As telas recebem a informação do usuário e conforme a interação acionar os métodos que executam determinada ação que foram definidas dentro da
+As telas recebem a informação do usuário e conforme a interação acionar os métodos que executam determinada ação, definidas dentro da
 Classe Funcionalidades, para o objetivo de cadastrar produto foi criado a Classe RecebeDadosDeCadastro ao chamar o método cadastrarProduto
 da classe Funcionalidades é feito uma verificação que a partir da escolha do usuário ele chama os métodos  para cadastramento de determinada 
 categoria, após receber todas as entradas do usuário é instanciado o produto passando os argumentos para o construtor da categoria, em seguida 
-é adicionado o produto dentro de uma [ArrayList](https://www.devmedia.com.br/explorando-a-classe-arraylist-no-java/24298) de Produtos, 
-ou seja, todos os produtos ficam guardados na classe Produtos, ao cadastrar um produto é gerado uma id única de acordo com sua categoria, adicionado 
+é adicionado o produto em uma [ArrayList](https://www.devmedia.com.br/explorando-a-classe-arraylist-no-java/24298) de Produtos, 
+ou seja, todos os produtos ficam guardados na classe Produtos, ao cadastrar um produto é gerado um id única de acordo com sua categoria, adicionado 
 a quantidade no estoque da determinada categoria e preenchido a data atual e horário.
 
-- Classe FormataData possui um método que recebe um new Date() e retorna a data formatada de acordo com o DateFormat.
+- Classe FormataData possui um método que recebe um new Date() e retorna a data formatada conforme o DateFormat.
 
 - Classe ValidacaoDeInputs é fundamental, nela possui o método inputIsvalido() para ser chamada em todos os lugares que deve receber um valor 
-númerico e em caso de uma [Exception](https://www.devmedia.com.br/tratando-excecoes-em-java/25514) ela informa para o usuário informar um valor 
+numérico e em caso de uma [Exception](https://www.devmedia.com.br/tratando-excecoes-em-java/25514) ela informa para o usuário informar um valor 
 válido esperado pelo sistema.
 
-## Classe Funcinalidades 
+## Classe Funcionalidades 
 Além do método cadastrarProduto(), essa classe possui outros métodos:
 
 ### isTemProdutoNoEstoque()
@@ -62,7 +62,7 @@ Esse método é utilizado no menu inicial para validar se existe algum produto j
   
   ### mostraTodoEstoque()
   Esse método verifica se existe produto no estoque através da reutilização do método isTemProdutoNoEstoque() se o retorno for verdadeiro
-  ele imprimi todos os produtos cadastrado no estoque indepedente da quantidade através de um for
+  ele imprimi todos os produtos cadastrados no estoque independente da quantidade através de um for
   
   <div align="center">
   
@@ -73,7 +73,7 @@ Esse método é utilizado no menu inicial para validar se existe algum produto j
   
   ### quantidadeEstoqueTotal()
 
-  Esse método tem como objetivo retornar a soma de todos os estoques de cada categoria e exibir conforme abaixo
+  Esse método procura retornar a soma de todos os estoques de cada categoria e exibir conforme abaixo
 
   
   <div align="center">
@@ -85,7 +85,7 @@ Esse método é utilizado no menu inicial para validar se existe algum produto j
    
    ### mostrarEstoquePorCategoria()
 
-Esse método tem como objetivo percorre todo o ArrayList de Produtos e imprimir na tela somente a categoria que foi passada por argumento 
+Esse método visa percorre todo o ArrayList de Produtos e imprimir na tela somente a categoria, passada por argumento 
 através da condição que verifica se produto instanceof “da categoria solicitada”.
   
   
@@ -98,7 +98,7 @@ através da condição que verifica se produto instanceof “da categoria solici
   
   ### buscarProdutoPelaID()
   
-Esse método recebe uma id informada pelo usuário e percorre todo ArrayList verificando se a id informada é igual a alguma id existente, para 
+Esse método recebe uma id informada pelo usuário e percorre todo ArrayList verificando se a id informada é igual a algum id existente, para 
 essa verificação foi utilizada forEach e dentro equals da classe Object.
 
 
@@ -111,7 +111,7 @@ essa verificação foi utilizada forEach e dentro equals da classe Object.
   
   ### removeQuantidadeNoEstoqueDoProduto()
 
-Esse método recebe por argumento uma id e quantidade, percorre todo o ArrayList através de um forEach e verifica se a id informada existe e 
+Esse método recebe por argumento um id e quantidade, percorre todo o ArrayList através de um forEach e verifica se o id informado existe e 
 se a quantidade informada é menor ou igual que a quantidade do produto em estoque, caso seja a remoção é realizada. 
 Não consegue realizar uma remoção de uma quantidade maior do que a disponível em estoque.
 
@@ -126,7 +126,7 @@ Não consegue realizar uma remoção de uma quantidade maior do que a disponíve
   ### adicionarQuantidadeNoEstoque()
 
 Esse método é utilizado primeiramente no construtor padrão de cada categoria
-para que na instancia do produto já seja adicionado a quantidade informada pelo usuário no estoque  da categoria especificada.
+para que na instância do produto já seja adicionado a quantidade informada pelo usuário no estoque  da categoria especificada.
 Também é utilizado quando temos a necessidade de alterar um produto.
 
 ### alterarProdutoCadastrado()
@@ -146,8 +146,8 @@ usuário escrever a nova informação.
 
 ### realizarVenda()
 
-Esse método recebe um o produto que foi pesquisa e a quantidade que deseja realiza a venda verifica se a quantidade é valida e remove a 
-quantidade informada do estoque e realiza o calculo para o saldo em caixa.
+Esse método recebe um produto, que foi pesquisado e a quantidade que deseja realizar a venda e verifica se a quantidade é valida e remove a
+quantidade informada do estoque, realizando o cálculo para o saldo em caixa.
 
 <div align="center">
 
@@ -158,7 +158,7 @@ quantidade informada do estoque e realiza o calculo para o saldo em caixa.
  
  ### validaQuantidade()
  
- Esse método tem como objetivo receber o input informado e verifica se os valor é maior que 0 e é utilizado em ocasiões onde o usuário 
+ Esse método tem como objetivo receber o input informado e verifica se o valor é maior que 0 e utilizado também em ocasiões onde o usuário 
  precisa adicionar algo no estoque ou remover, então isso impede que o usuário informe um valor negativo ou 0.
  
  <div align="center">
@@ -169,8 +169,6 @@ quantidade informada do estoque e realiza o calculo para o saldo em caixa.
   </div>
 	
   
-
-
 
 
 
